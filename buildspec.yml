@@ -3,11 +3,11 @@ version: 0.1
 phases:
   install:
     commands:
-      - apt-get update -y
-      - npm install 
+      - apt-get update -y 
+      - npm install -g gulp-cli
   build:
     commands:
-      - npm install
+      - npm install && gulp build
   post_build:
     commands:
       - aws cloudformation package --template-file sam-template.json --output-template-file sam-output.yml --s3-bucket lambda-python-pipeline 
