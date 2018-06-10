@@ -10,7 +10,7 @@ phases:
       - npm install
   post_build:
     commands:
-      - "test -n lambda-python-pipeline && aws cloudformation package --template-file sam-template.json --output-template-file sam-output.yml --s3-bucket lambda-python-pipeline --s3-prefix `echo $CODEBUILD_BUILD_ID | tr : /`"
+      - aws cloudformation package --template-file sam-template.json --output-template-file sam-output.yml --s3-bucket lambda-python-pipeline 
 artifacts:
   type: zip
   files:
